@@ -1,10 +1,5 @@
-[TOC]
-
-<!-- Patterns -->
 # 第二十五章 设计模式
 
-
-<!-- The Pattern Concept -->
 ## 概念
 最初，你可以将模式视为解决特定类问题的一种特别巧妙且有深刻见解的方法。这就像前辈已经从所有角度去解决问题，并提出了最通用，最灵活的解决方案。问题可能是你之前看到并解决过的问题，但你的解决方案可能没有你在模式中体现的那种完整性。
 
@@ -1209,8 +1204,8 @@ public class Facade {
 <!-- The Visitor Pattern -->
 ## 访问者模式
 
-
 <!-- RTTI Considered Harmful? -->
+
 ## RTTI的优劣
 
 
@@ -1218,9 +1213,5 @@ public class Facade {
 ## 本章小结
 
 
-
-
-
-<!-- 分页 -->
 
 <div style="page-break-after: always;"></div>

@@ -8,10 +8,9 @@
 1. 文件或者目录的路径；
 2. 文件本身。
 
-<!-- File and Directory Paths -->
 ## 文件和目录路径
 
-一个 **Path** 对象表示一个文件或者目录的路径，是一个跨操作系统（OS）和文件系统的抽象，目的是在构造路径时不必关注底层操作系统，代码可以在不进行修改的情况下运行在不同的操作系统上。**java.nio.file.Paths** 类包含一个重载方法 **static get()**，该方法接受一系列 **String** 字符串或一个*统一资源标识符*(URI)作为参数，并且进行转换返回一个 **Path** 对象：
+一个 **Path** 对象表示一个文件或者目录的路径，是一个跨操作系统（OS）和文件系统的抽象，目的是在构造路径时不必关注底层操作系统，代码可以在不进行修改的情况下运行在不同的操作系统上。**`java.nio.file.Paths`** 类包含一个重载方法 `static get()`，该方法接受一系列 **String** 字符串或一个*统一资源标识符*(URI)作为参数，并且进行转换返回一个 **Path** 对象：
 
 ```java
 // files/PathInfo.java
@@ -231,7 +230,7 @@ ContentType: null
 SymbolicLink: false
 */
 ```
-在调用最后一个测试方法 **getPosixFilePermissions()** 之前我们需要确认一下当前文件系统是否支持 **Posix** 接口，否则会抛出运行时异常。
+在调用最后一个测试方法 `getPosixFilePermissions()` 之前我们需要确认一下当前文件系统是否支持 **Posix** 接口，否则会抛出运行时异常。
 
 ### **Paths**的增减修改
 我们必须能通过对 **Path** 对象增加或者删除一部分来构造一个新的 **Path** 对象。我们使用 **relativize()** 移除 **Path** 的根路径，使用 **resolve()** 添加 **Path** 的尾路径(不一定是“可发现”的名称)。
@@ -320,8 +319,6 @@ ExtractedExamples\files\nonexistent
 */
 ```
 我还为 **toRealPath()** 添加了更多的测试，这是为了扩展和规则化，防止路径不存在时抛出运行时异常。
-
-<!-- Directories -->
 
 ## 目录
 **Files** 工具类包含大部分我们需要的目录操作和文件操作方法。出于某种原因，它们没有包含删除目录树相关的方法，因此我们将实现并将其添加到 **onjava** 库中。
@@ -510,8 +507,6 @@ File Attribute Views: [owner, dos, acl, basic, user]
 */
 ```
 一个 **FileSystem** 对象也能生成 **WatchService** 和 **PathMatcher** 对象，将会在接下来两章中详细讲解。
-
-<!-- Watching a Path -->
 
 ## 路径监听
 通过 **WatchService** 可以设置一个进程对目录中的更改做出响应。在这个例子中，**delTxtFiles()** 作为一个单独的任务执行，该任务将遍历整个目录并删除以 **.txt** 结尾的所有文件，**WatchService** 会对文件删除操作做出反应：
@@ -713,7 +708,6 @@ dir.tmp
 
 注意，在这两种情况下，输出中都会出现 `dir.tmp`，即使它是一个目录而不是一个文件。要只查找文件，必须像在最后 `files.walk()` 中那样对其进行筛选。
 
-<!-- Reading & Writing Files -->
 ## 文件读写
 此时，我们可以对路径和目录做任何事情。 现在让我们看一下操纵文件本身的内容。
 
@@ -837,13 +831,11 @@ public class StreamInAndOut {
 
 因为我们在同一个块中执行所有操作，所以这两个文件都可以在相同的 try-with-resources 语句中打开。`PrintWriter` 是一个旧式的 `java.io` 类，允许你“打印”到一个文件，所以它是这个应用的理想选择。如果你看一下 `StreamInAndOut.txt`，你会发现它里面的内容确实是大写的。
 
-<!-- Summary -->
-
 ## 本章小结
-虽然本章对文件和目录操作做了相当全面的介绍，但是仍然有没被介绍的类库中的功能——一定要研究 `java.nio.file` 的 Javadocs，尤其是 `java.nio.file.Files` 这个类。
+虽然本章对文件和目录操作做了相当全面的介绍，但是仍然有没被介绍的类库中的功能——一定要研究 `java.nio.file` 的 `Javadocs`，尤其是 `java.nio.file.Files` 这个类。
 
 Java 7 和 8 对于处理文件和目录的类库做了大量改进。如果您刚刚开始使用 Java，那么您很幸运。在过去，它令人非常不愉快，我确信 Java 设计者以前对于文件操作不够重视才没做简化。对于初学者来说这是一件很棒的事，对于教学者来说也一样。我不明白为什么花了这么长时间来解决这个明显的问题，但不管怎么说它被解决了，我很高兴。使用文件现在很简单，甚至很有趣，这是你以前永远想不到的。
 
-<!-- 分页 -->
+
 
 <div style="page-break-after: always;"></div>
